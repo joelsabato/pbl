@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njia za Malipo</title>
+    <script>
+        const params=new URLSearchParams(window.location.search);
+        let product=params.get("product");
+        let price=params.get("price");
+        let qty=params.get("qty");
+        let name=params.get("name");
+        console.log(product,price,qty,name);
+    </script>
+
+    <style>
+        body {
+            font-family: "poppins", sans-serif;
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-top: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .number {
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .ussd {
+            background: #007bff;
+            color: white;
+        }
+
+        .ussd:hover {
+            background: #0056b3;
+        }
+        img{
+            height: 74px;
+            width: 111px;
+        }
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp:hover {
+            background: #1ebe5d;
+        }
+
+        .back {
+            margin: 30px;
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Chagua Njia ya Malipo</h1>
+
+    <div class="container">
+
+        <!-- M-Pesa -->
+        <div class="card">
+            <h2>M-Pesa</h2>
+            <img src="m-pesa-logo.png">
+            <p><b>LIPA KWA NAMBA</b></p>
+            <div class="number">0747635418</div>
+
+            <button class="btn ussd" onclick="window.location.href='tel:*150*00#'">
+                Fungua M-Pesa
+            </button>
+
+            <button class="btn whatsapp"
+                onclick="window.location.href='https://wa.me/2557697635418?text=Nimelipa%20kwa%20M-Pesa'">
+                Nimelipa
+            </button>
+        </div>
+
+        <!-- Tigo Pesa -->
+        <div class="card">
+            <h2>MIXX by Yas</h2>
+            <img src="mixx-by-yass-tigo-pesa.png">
+            <p><b>LIPA KWA NAMBA</b></p>
+            <div class="number">0717635418</div>
+
+            <button class="btn ussd" onclick="window.location.href='tel:*150*01#'">
+                Fungua Tigo Pesa
+            </button>
+
+            <button class="btn whatsapp"
+                onclick="window.location.href='https://wa.me/255697635418?text=Nimelipa%20kwa%20Tigo%20Pesa'">
+                Nimelipa
+            </button>
+        </div>
+
+        <!-- Airtel Money -->
+        <div class="card">
+            <h2>Airtel Money</h2>
+            <img src="airtel-money-tanzania-logo-png_seeklogo-527192.png">
+            <p><b>LIPA KWA NAMBA</b></p>
+            <div class="number">0697635418</div>
+
+            <button class="btn ussd" onclick="window.location.href='tel:*150*60#'">
+                Fungua Airtel Money
+            </button>
+
+            <button class="btn whatsapp"
+                onclick="window.location.href='https://wa.me/2557697636418?text=Nimelipa%20kwa%20Airtel%20Money'">
+                Nimelipa
+            </button>
+        </div>
+
+    </div>
+
+    <button class="back" onclick="window.location.href='index.html'">
+        ⬅ Rudi Nyuma
+    </button>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<title>Uthibitisho wa Oda</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+h2 {
+    color: green;
+}
+
+.item {
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+
+.back {
+    background: gray;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Thibitisha Oda Yako</h2>
+
+    <div class="item">Bidhaa: <span id="product"></span></div>
+    <div class="item">Bei: <span id="price"></span> TZS</div>
+    <div class="item">Idadi: <span id="qty"></span></div>
+    <div class="item">Njia ya Malipo: <span id="method"></span></div>
+
+    <div class="item total">
+        Jumla: <span id="total"></span> TZS
+    </div>
+
+    <hr>
+
+    <div class="item">Jina: <span id="name"></span></div>
+    <div class="item">Simu: <span id="phone"></span></div>
+    <div class="item">Location: <span id="location"></span></div>
+
+    <button onclick="confirmOrder()">Thibitisha Malipo</button>
+    <button class="back" onclick="goBack()">Rudi</button>
+</div>
+
+<script>
+// Kuchukua data kutoka URL
+const params = new URLSearchParams(window.location.search);
+
+let product = params.get("product");
+let price = parseInt(params.get("price"));
+let qty = parseInt(params.get("qty"));
+let method = params.get("method");
+let name = params.get("name");
+let phone = params.get("phone");
+let location = params.get("location");
+
+// Ku-display data
+document.getElementById("product").innerText = product;
+document.getElementById("price").innerText = price;
+document.getElementById("qty").innerText = qty;
+document.getElementById("method").innerText = method;
+document.getElementById("name").innerText = name;
+document.getElementById("phone").innerText = phone;
+document.getElementById("location").innerText = location;
+
+// Total
+let total = price * qty;
+document.getElementById("total").innerText = total;
+
+// Button action
+function confirmOrder() {
+    alert("Malipo yamepokelewa! Asante kwa kununua.");
+    window.location.href = "index.html";
+}
+
+function goBack() {
+    history.back();
+}
+</script>
+
+</body>
+</html>

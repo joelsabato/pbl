@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<title>Weka Oda</title>
+<script>
+    function endeleaMalipo(){
+        window.location.href="buy.html";
+    }
+</script>
+
+<style>
+body {
+    font-family: "poppins", sans-serif;
+    background: linear-gradient(to right, #e0f7ea, #f4f4f4);
+    margin: 0;
+}
+
+.header {
+    background: green;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.container {
+    max-width: 420px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    color: green;
+}
+
+label {
+    font-weight: bold;
+}
+ img{
+        height: 185px;
+        width: 185px;
+       }
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+    border-color: green;
+    outline: none;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    color: darkgreen;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Soap Store</h2>
+</div>
+
+<div class="container">
+    <h2>Weka Oda</h2>
+<img src="LSG-scaled-e1721119939242.jpg">
+    <label>Bidhaa</label>
+    <input type="text" id="product" value="Sabuni ya Kuogea" readonly>
+
+    <label>Bei (TZS)</label>
+    <input type="number" id="price" value="1000" readonly>
+
+    <label>Idadi</label>
+    <input type="number" id="qty" value="1" min="1" oninput="calcTotal()">
+
+    <p class="total">Jumla: <span id="total">1000</span> TZS</p>
+    <br>
+     <label>Bidhaa</label>
+    <input type="text" id="product" value="Sabuni ya  maji" readonly>
+
+    <label>Bei (TZS)</label>
+    <input type="number" id="price" value="2000" readonly>
+
+    <label>Idadi</label>
+    <input type="number" id="qty" value="1" min="1" oninput="calcTotal()">
+
+    <p class="total">Jumla: <span id="total">2000</span> TZS</p>
+
+
+    <label>Jina lako</label>
+    <input type="text" id="name" placeholder="Ingiza jina lako">
+
+    <label>Namba ya simu</label>
+    <input type="tel" id="phone" placeholder="07XXXXXXXX">
+
+    <label>Mahali ulipo</label>
+    <input type="text" id="location" placeholder="Mfano: Dodoma">
+    <button onclick="endeleaMalipo()">Endelea Malipo</button>
+</div>
+
+<script>
+function calcTotal() {
+    let price = document.getElementById("price").value;
+    let qty = document.getElementById("qty").value;
+    document.getElementById("total").innerText = price * qty;
+}
+
+function continueOrder() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let location = document.getElementById("location").value;
+
+    // validation
+    if(name === "" || phone === "" || location === ""){
+        alert("Tafadhali jaza taarifa zote!");
+        return;
+    }
+
+    let product = document.getElementById("product").value;
+    let price = document.getElementById("price").value;
+    let qty = document.getElementById("qty").value;
+
+    let url = "payment.html?product="+product+
+              "&price="+price+
+              "&qty="+qty+
+              "&name="+name+
+              "&phone="+phone+
+              "&location="+location;
+
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
